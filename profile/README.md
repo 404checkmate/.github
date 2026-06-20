@@ -81,7 +81,6 @@
 ![NestJS](https://img.shields.io/badge/NestJS_11-E0234E?style=flat-square&logo=nestjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript_5.7-3178C6?style=flat-square&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma_6-2D3748?style=flat-square&logo=prisma&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis_7_+_BullMQ-DC382D?style=flat-square&logo=redis&logoColor=white)
 ![OpenAI](https://img.shields.io/badge/OpenAI_gpt--4o--mini-412991?style=flat-square&logo=openai&logoColor=white)
 
 ### Infra · Data · Analytics
@@ -107,12 +106,9 @@
 [ APP SERVER (AWS EC2) ]   NestJS 11 (:8080) · Nginx · PM2
                            Helmet · Rate Limiter · JWT(jose)
     │            │
-    │ jobs       │ calls
+    │ calls      │ persists
     ▼            ▼
-[ ASYNC ]     [ EXTERNAL ]   OpenAI (LLM) · Supabase Auth (OAuth) · Notion (CMS)
- BullMQ·Redis
-    │
-    ▼
+[ EXTERNAL ]               OpenAI (LLM, 동기 호출) · Supabase Auth (OAuth) · Notion (CMS)
 [ DATA ]                   Supabase PostgreSQL · Prisma ORM
 
 [ CI/CD ]  GitHub → GitHub Actions → Build → rsync over SSH → deploy.sh → Health Check
